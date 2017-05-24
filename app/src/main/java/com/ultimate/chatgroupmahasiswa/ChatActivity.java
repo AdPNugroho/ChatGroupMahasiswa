@@ -2,6 +2,7 @@ package com.ultimate.chatgroupmahasiswa;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -46,15 +47,35 @@ public class ChatActivity extends AppCompatActivity {
         mSendButton = (Button) findViewById(R.id.sendButton);
         mMessageEdit = (EditText) findViewById(R.id.messageEdit);
 
-        mSendButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            }
-        });
+      mSendButton.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+          }
+      });
 
+        String pilihan = getIntent().getExtras().getString("value");
+        String link ="";
+        ActionBar action = getSupportActionBar();
+        switch(pilihan){
+            case "job":
+                link = "https://realtimechat-service.firebaseio.com/job";
+                setTitle("Group JobVacancy");
+                break;
+            case "alumni":
+                link = "https://realtimechat-service.firebaseio.com/alumni";
+                setTitle("Group Alumni");
+                break;
+            case "kelas":
+                link = "https://realtimechat-service.firebaseio.com/kelas";
+                setTitle("Group Kelas");
+                break;
+            case "lounge":
+                link = "https://realtimechat-service.firebaseio.com/lounge";
+                setTitle("Group Lounge");
+                break;
+        }
 
-
-        mRef = new Firebase("https://realtimechat-service.firebaseio.com/ti4c");
+        mRef = new Firebase(link);
         mChatRef = mRef.limitToLast(50);
 
         mSendButton.setOnClickListener(new View.OnClickListener() {

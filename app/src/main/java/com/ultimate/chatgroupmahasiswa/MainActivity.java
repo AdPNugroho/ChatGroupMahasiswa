@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                     editSharedPreferences.putString("nama",namaMhs);
                     editSharedPreferences.putString("nim",nimMhs);
                     editSharedPreferences.commit();
-                    Intent i = new Intent(getApplicationContext(), ChatActivity.class);
+                    Intent i = new Intent(getApplicationContext(), MainChoice.class);
                     startActivity(i);
                 }
             }

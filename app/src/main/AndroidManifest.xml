@@ -18,7 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChatActivity"></activity>
+        <activity
+            android:name=".ChatActivity"
+            android:icon="@drawable/logo"/>
+        <activity
+            android:name=".MainChoice"
+            android:label="Pilih Group Chat"
+            android:icon="@drawable/logo"/>
     </application>
 
 </manifest>
